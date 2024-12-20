@@ -1,0 +1,81 @@
+ /* CASCADING STYYLE SHEET */
+ h2{
+    color:rgb(114, 191, 224);
+    text-align: center;
+ }
+
+ p {
+    color:maroon;
+    text-align:center;
+    text-decoration: wavy underline;
+    font-weight: bolder;
+    font-size:xx-large;
+ }
+
+ button {
+    color :rgb(233, 21, 92);
+    background-color: rgb(62, 230, 230);
+    text-align:center;
+ }
+ body{
+    background-color:rgb(249, 121, 95);
+    text-align:center;
+    font-family: cursive;
+ }
+ 
+ #heading1 {
+    /* only directed towards those of id heading 1 */
+    color:crimson;
+    text-decoration: none;
+    font-weight: lighter;
+ }
+ #heading2{
+    color:darksalmon;
+    text-decoration: none;
+ }
+
+ .heading3{
+    /* for a specified class */
+    color:darkgreen;
+ }
+
+ /* if 2 commands are direected towards the same thing the command that comes ater overwrites the commmand used before */
+
+ #box{
+    color:blue;
+ }
+
+ .bang {
+    color:red;
+ }
+
+ #button {
+    background-color: darkolivegreen;
+ }
+
+ #lorem{
+    color:slateblue;
+    text-decoration: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+ }
+
+ #lorem2{
+    color:rgb(70, 59, 9);
+    text-decoration: none;
+    line-height: 20px;
+    font-size: 16px;
+    text-transform:capitalize;
+
+
+ }
+
+ #outer{
+    font-size:50px;
+ }
+
+ #inner{
+    font-size:30px;
+ }
+
+ 

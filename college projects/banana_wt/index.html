@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Games 2024 Paris Survey.</title>
+    <script>
+        function validateForm() {
+            var name = document.forms["olympicsForm"]["name"].value;
+            var email = document.forms["olympicsForm"]["email"].value;
+            var phone = document.forms["olympicsForm"]["phone"].value;
+            var date = document.forms["olympicsForm"]["date"].value;
+            var checkbox = document.forms["olympicsForm"]["terms"].checked;
+            var phonePattern = /^\d{10}$/;
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (name == "" || email == "" || phone == "" || date == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a 10-digit phone number");
+                return false;
+            }
+            if (!checkbox) {
+                alert("You must agree to the terms and conditions");
+                return false;
+            }
+
+            alert("Thank you, successfully submitted " + name + "!");
+            return true;
+        }
+    </script>
+    <style>body{
+    background-color: #b0dfeb;
+
+}
+
+img{
+    position: absolute;
+    top:0;
+    right: 0;
+    width:100px;
+    height:120px;
+}
+
+table{
+    border: solid black 2px;
+    background-color: aliceblue;
+    width:100%;
+    border-collapse:collapse;
+    height:50px;
+    margin-left: 5px;;
+    margin-right: 5px;
+
+}
+
+th{
+    border: solid black 2px;
+    padding: 10px;
+    margin-right:10px ;
+    text-align: left ;
+    background-color:#1e90ff ;
+
+}
+
+td{
+    border: solid black 2px;
+    padding: 10px;
+    margin-right:10px;
+    text-align: left;
+
+}
+
+div{
+    font-size: larger;
+}
+
+label{
+    font-weight:500;
+}
+
+form{
+    position: absolute;
+    left:550px;
+    background-color:aliceblue;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 10px auto;
+
+}
+
+#name{
+    height: 1.5em;
+    width: 400px;;
+}
+#email,#number{
+    height:1.5em;
+    width: 400px;;
+}
+
+#event{
+    height:2em;
+    width: 400px;;
+}
+
+#date{
+    height:1.5em;
+    width: 400px;;
+}
+
+button{
+    background-color: #1e90ff;
+    height: 25px;
+    width: 150px;
+    border-radius: 7px;
+}
+</style>
+</head>
+<body>
+    <h2>
+        Olympic Games 2024 Paris
+    </h2>
+    <h3>
+        Olympic Games 2024 Highlights
+    </h3>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/2024_Summer_Olympics_logo.svg/220px-2024_Summer_Olympics_logo.svg.png" alt="Paris Olympics 2024"/>
+    <br>
+    <table>
+        <tr>
+            <th colspan="2">Event</th>
+            <th>Date</th>
+            <th>Location</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Opening Ceremony</td>
+            <td>Main Stadium</td>
+            <td>24 July 2024</td>
+            <td>Paris, France</td>
+        </tr>
+        <tr>
+            <td>Beach Events</td>
+            <td>27 July 2024</td>
+            <td>Nice, France</td>
+        </tr>
+        <tr>
+            <td colspan="2">Closing Ceremony</td>
+            <td>11 August 2024</td>
+            <td>Paris, France</td>
+        </tr>
+    </table>
+    <br>
+    <div>
+        <b>Survey Form</b>
+    </div>
+    <br>
+
+    <form name="olympicsForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Mobile Number:</label><br>
+        <input type="tel" id="phone" name="phone" pattern="\d{10}" required><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male" required> Male
+        <input type="radio" id="female" name="gender" value="female"> Female
+        <br><br>
+
+        <label for="event">Favorite Event</label><br>
+        <select id="event" name="event" required>
+            <option value="" disabled selected>Select an event</option>
+            <option value="Athletics">Athletics</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Gymnastics">Gymnastics</option>
+            <option value="Football">Football</option>
+        </select>
+        <br><br>
+
+        <label for="date">Preferred Date for Attending</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the terms and conditions</label>
+        <br><br>
+
+        <button type="submit" id="submit">Submit</button><br><br>
+        <button type="reset" id="reset">Reset</button><br>
+    </form>
+
+    <br>
+    <br>
+    
+</body>
+</html>

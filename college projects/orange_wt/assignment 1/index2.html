@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Button Effects</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .container {
+            width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #666363;
+            background-color: #e0d5d5;
+        }
+        .filterMe {
+            margin-bottom: 10px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            width:600px;
+            margin: 20px auto;
+        }
+        button {
+            flex: 1;
+            margin: 0 5px;
+            padding: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="content">
+            <p class="filterMe">---------------<br>Web Tech.<br>---------------</p>
+        </div>
+    </div>
+    <div>
+        <div class="button-container">
+            <button id="prependText">Prepend Text</button>
+            <button id="appendText">Append Text</button>
+            <button id="hideDiv">Hide Div</button>
+            <button id="unhideDiv">Unhide Div</button>
+            <button id="changeTextColor">Change Text Color</button>
+        </div>
+    </div>
+    
+
+    <script>
+        $(document).ready(function() {
+            // Prepend Text
+            $("#prependText").click(function() {
+                $("#content").fadeOut(function() {
+                    $(this).prepend("<p class='filterMe'>jQuery is awesome!</p>").fadeIn();
+                });
+            });
+
+            // Append Text
+            $("#appendText").click(function() {
+                $("<p class='filterMe'>jQuery is awesome!</p>").hide().appendTo("#content").slideDown();
+            });
+
+            // Hide Div
+            $("#hideDiv").click(function() {
+                $("#content").fadeOut();
+            });
+
+            // Unhide Div
+            $("#unhideDiv").click(function() {
+                $("#content").fadeOut(function() {
+                    $(this).fadeIn();
+                });
+            });
+
+            // Change Text Color
+            $("#changeTextColor").click(function() {
+                $(".filterMe").each(function() {
+                    $(this).css("color", getRandomColor());
+                });
+            });
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+</body>
+</html>

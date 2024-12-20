@@ -1,0 +1,52 @@
+/* #heading{
+    color:pink;
+    text-decoration: dashed;
+}
+
+body{
+    background-color: grey;
+}
+
+button {
+    background-color: pink;
+}
+
+.heading1 {
+    color: peachpuff;
+}
+
+p {
+    color:darksalmon;
+}
+
+#box {
+    height: 100px;
+    width: 100px;
+    background-color: darkseagreen;
+    border: 1px solid pink;
+    border-width: 3px;
+    border-style:dashed;
+
+
+} */
+/* 
+div{
+    height: 100px;
+    width: 100px;
+    background-color: darkseagreen;
+    border: 1px solid pink;
+    border-width: 3px;
+    border-style:dashed;
+
+} */
+
+.dark {
+    background-color: grey;
+    color:beige;
+    
+}
+
+.light {
+    background-color: white;
+    color: black;
+}

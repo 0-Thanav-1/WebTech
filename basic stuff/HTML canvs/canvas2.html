@@ -1,0 +1,51 @@
+<!-- circles and arcs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas2</title>
+</head>
+<body>
+
+    <svg width="1000" height="1000">
+        <circle cx="169" cy="169" r="50" stroke="blue" fill="black" stroke-width="3"></circle>
+        <rect x="50" y="50" height="50" width="50" fill="orange" stroke="white" stroke-width="3"></rect>
+        <ellipse cx="40" cy="159" rx="30" ry="40" fill="lightblue" stroke="grey" stroke-width="2">
+        </ellipse>
+        <polygon points=" 250,10 225,25 250,50 275,75 300,50 325,25 300,10" fill="pink"></polygon>
+        <text x="20" y="15" fill="#FFD700" transform="rotate(25 20 100)">hello</text>
+        </svg>
+    <!-- <canvas id="myCanvas" width="300" height="250"  "></canvas>
+    <canvas id="myCanvas2" width="300" height="150"  "></canvas>
+
+    <script>
+        const c = document.getElementById("myCanvas");
+        const ctx = c.getContext("2d");
+
+        ctx.beginPath();
+        ctx.moveTo(20,20);
+        ctx.bezierCurveTo(20,200,200,200,200,20); //   context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+        ctx.fillStyle = "lightyellow";
+        ctx.fill();
+        ctx.closePath();
+        ctx.stroke();
+
+
+        const c2 = document.getElementById("myCanvas2");
+        const ctx2 = c2.getContext("2d");
+
+        ctx2.beginPath();
+        ctx2.arc(109,75,60,0,2*Math.PI); //context.arc(x, y, r, start_Angle, end_Angle, counterclockwise)
+        ctx2.fillStyle = "lightpink";
+        ctx2.fill();
+        ctx2.strokeStyle = "black";
+        ctx2.stroke();
+
+
+
+        
+    </script> -->
+</body>
+</html>

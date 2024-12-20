@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        function Person(name, age, weight) {
+            this.name = name;
+            this.age = age;
+            this.weight = weight;
+        }
+
+        const tanav = new Person("Tanav", 19, 65);
+        const vardhan = new Person("Vardhan", 18, 85);
+
+        function display(object) {
+            // Select the output div and add details of the person to it
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML += `<p>Name: ${object.name}, Age: ${object.age}, Weight: ${object.weight}</p>`;
+        }
+
+        display(tanav);
+        display(vardhan);
+
+        // Adding a method to the Person prototype
+        Person.prototype.changeName = function(name) { 
+            this.name = name;
+        }
+
+        // Changing tanav's name and displaying it again
+        tanav.changeName("Thanav"); //method is added to all the objects previously deckared even before the functon is declared as well
+        // so we can use it to change name in this case for an object that is alreeady defined
+        display(tanav);
+    </script>
+</body>
+</html>

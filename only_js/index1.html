@@ -1,0 +1,74 @@
+<!-- events in js -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript HTML Events</h1>
+<h2>The onclick Attribute</h2>
+
+<p>Click the button to display the date.</p>
+<button onclick="displayDate(button)">The time is?</button>
+
+<script>
+function displayDate(button) {
+  button.innerHTML = Date();
+}
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html> 
+ -->
+
+<!-- 
+ <!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript onkeydown Event</h1>
+<p>Type something in the input field below:</p>
+
+<input type="text" onkeydown="showKey(event)" placeholder="Type here..." />
+<p id="output"></p>
+
+<script>
+function showKey(event) {
+  // Get the current value of the input field
+  const inputText = event.target.value + event.key;  // `event.key` gets the key pressed
+  // Display it in the output paragraph
+  document.getElementById("output").textContent = "You typed: " + inputText;
+}
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keydown Example</title>
+</head>
+<body>
+    <h1>Press any key!</h1>
+    <p id="output">Key pressed will be shown here.</p>
+
+    <script>
+        // Wait for the DOM to fully load before adding the event listener
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select the output paragraph
+            const output = document.getElementById('output');
+
+            // Add an event listener for the 'keydown' event
+            window.addEventListener('keydown', function(event) {
+                // Display the key pressed
+                output.textContent = `You pressed: ${event.key}`;
+            });
+        });
+    </script>
+</body>
+</html>
+
+

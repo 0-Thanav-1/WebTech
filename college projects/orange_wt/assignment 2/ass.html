@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="Cont"></div>
+    <script type="text/babel">
+        class Own extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    appointments: [
+                        { id: 1, name: "John Doe", type: "Routine checkup", date: "2024-08-05", status: "Scheduled" },
+                        { id: 2, name: "Jane Smith", type: "Consultation", date: "2024-08-06", status: "Scheduled" },
+                        { id: 3, name: "Mary Johnson", type: "Follow Up", date: "2024-08-05", status: "Scheduled" },
+                    ],
+                    count: 0
+                };
+            }
+
+            comp = (id) => {
+                this.setState((prevState) => {
+                    const updatedAppointments = prevState.appointments.map((appointment) => {
+                        if (appointment.id === id && appointment.status === "Scheduled") {
+                            return { ...appointment, status: "Completed" };
+                        }
+                        return appointment;
+                    });
+                    const completedCount = updatedAppointments.filter(app => app.status === "Completed").length;
+                    return { appointments: updatedAppointments, count: completedCount };
+                });
+            };
+
+            render() {
+                return (
+                    <div>
+                        <h1>Patient Appointments</h1>
+                        <br />
+                        {this.state.appointments.map((appointment) => (
+                            <Info
+                                key={appointment.id}
+                                name={appointment.name}
+                                type={appointment.type}
+                                date={appointment.date}
+                                status={appointment.status}
+                                mark={() => this.comp(appointment.id)}
+                            />
+                        ))}
+                        <br />
+                        <Count count={this.state.count} />
+                    </div>
+                );
+            }
+        }
+
+        class Info extends React.Component {
+            render() {
+                const complete = {
+                    textDecoration: "line-through",
+                    color: "gray"
+                };
+                const def = {
+                    textDecoration: "none",
+                    color: "black"
+                };
+                const in_sty = {
+                    backgroundColor: '#87CEEB', 
+                    color: 'black', 
+                    display: this.props.status === 'Completed' ? "none" : "inline-block"
+                };
+                return (
+                    <div>
+                        <br />
+                        <fieldset>
+                            <h2 style={this.props.status === 'Completed' ? complete : def}>{this.props.name}</h2>
+                            <p>{this.props.type}</p>
+                            <p>{this.props.date}</p>
+                            <p>Status: {this.props.status}</p>
+                            <input type="button" value="Mark as Completed" style={in_sty} onClick={this.props.mark} />
+                        </fieldset>
+                        <br />
+                    </div>
+                );
+            }
+        }
+
+        class Count extends React.Component {
+            render() {
+                return (
+                    <h2>Total Completed Appointments: {this.props.count}</h2>
+                );
+            }
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("Cont"));
+        root.render(<Own />);
+    </script>
+</body>
+</html>

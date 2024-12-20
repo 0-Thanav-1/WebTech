@@ -1,0 +1,47 @@
+<!-- rectangles -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="300" height="150" style="border:1px solid black; background-color: lightpink;">
+    </canvas>
+
+
+    <script>
+        const myCanvas = document.getElementById("myCanvas");
+        const ctx = myCanvas.getContext("2d");
+
+        ctx.fillStyle = "lightblue";
+        ctx.fillRect(70,25,150,100); //default fillrect gives black coloured filled rect
+        // other methods are strokeRect(x,y,width,height) - gives without fil l(only border).
+        // clearRect(x,y,width,height) - clears a part of rectangle in given path
+        
+
+        // increasing x moves right , increasing y moves down in lineTO(x,y)
+        ctx.beginPath(); 
+        ctx.strokeStyle = "black";
+        ctx.moveTo(70,25); //moverPath(x,y;)
+        ctx.lineTo(70,125); //lineTO(x,y);
+        ctx.lineTo(220,125);
+        ctx.closePath() // joints starting and ending point
+        ctx.stroke(); 
+
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.moveTo(220,125);
+        ctx.lineTo(220,25);
+        ctx.lineTo(70,25);
+        ctx.fillStyle = "lightyellow"; // dafaule is black
+        ctx.fill(); // fills the path between starting and ending points just like close path method
+        ctx.stroke();
+
+
+
+    </script>
+</body>
+</html>

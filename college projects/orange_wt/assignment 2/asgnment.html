@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments.</title>
+
+    <style>
+
+        .crossed-out {
+            text-decoration: line-through;
+            color: lightgray;
+        }
+
+        button{
+            background-color: rgb(36, 209, 36);
+            color: white;
+            }
+
+        div{
+            border: 1px solid black;
+            padding: 5px;
+            line-height: 1.3;
+            margin-bottom: 5px;
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h3><b>Patient Appointments</b></h3>
+    <div>
+        <b>John Doe </b> <br>
+        Routine checkup <br>
+        2024-08-05 <br>
+        status: scheduled <br>
+        <button> Mark as completed</button>
+        <br>
+
+    </div>
+    
+    <div>
+        <b>Jane Smith </b> <br>
+        Consultation <br>
+        2024-08-05 <br>
+        status: scheduled <br>
+        <button> Mark as completed</button>
+        <br>
+
+    </div>
+
+    <div>
+        <b>Mary Johnson</b> <br>
+        Follow-up <br>
+        2024-08-05 <br>
+        status: scheduled <br>
+        <button> Mark as completed</button>
+        <br>
+
+    </div>
+
+    <h4>Total Completed Appointments: 0</h4>
+</body>
+
+<script>
+    // Select all buttons
+    const buttons = document.querySelectorAll('button');
+
+    // Add an event listener to each button
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Get the parent div and the <b> element within it (the patient's name)
+            const div = button.parentElement;
+            const nameElement = div.querySelector('b');
+            
+            // Add the 'crossed-out' class to the name element
+            nameElement.classList.add('crossed-out');
+            
+            // Change the status text and disable the button
+            div.innerHTML = div.innerHTML.replace('status: scheduled', 'status: completed');
+            button.textContent = 'Completed';
+            button.disabled = true;
+        });
+    });
+</script>
+
+</html>
